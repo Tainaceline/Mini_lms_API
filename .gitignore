@@ -1,0 +1,9 @@
+venv
+.env
+__pycache__
+banco.db
+*.sqlite3
+*.db
+.pytest_cache/
+
+
