@@ -11,3 +11,10 @@ class UsuarioSchema(BaseModel):
 
     class config:
         from_attributes = True
+class LoginSchema (BaseModel):
+    email : str
+    senha : str
+
+
+    class config:
+        from_attributes = True
