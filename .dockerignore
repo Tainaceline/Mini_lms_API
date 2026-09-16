@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.vscode/
+banco.db
+*.sqlite3
+*.db
+.pytest_cache/

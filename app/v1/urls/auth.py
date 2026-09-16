@@ -2,11 +2,11 @@
 from fastapi import APIRouter,HTTPException,Depends
 from datetime import datetime,timedelta,timezone
 from jose import jwt,JWTError
-from main import ACCES_TOKEN_EXPIRE_MINUTES, SECRET_KEY,ALGORITHM
+from config import  SECRET_KEY,ALGORITHM,ACCESS_TOKEN_EXPIRE_MINUTES
 
 from app.models import Usuario
 from app.v1.urls.schemas import LoginSchema
-from app.v1.urls.depends import pegar_sessao
+from app.v1.urls.depends import pegar_sessao,verificar_token
 from app.v1.urls.users import criar_conta
 
 def criar_token(id_usuario,tipo_token: str):

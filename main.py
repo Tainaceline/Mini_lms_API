@@ -6,7 +6,7 @@ from fastapi.security import OAuth2PasswordBearer
 app = FastAPI()
 
 bcrypt_context=CryptContext(schemes=['bcrypt'],deprecated='auto')
-oauth2_shcema = OAuth2PasswordBearer(tokenUrl='auth/login_form')
+oauth2_schema = OAuth2PasswordBearer(tokenUrl='auth/login_form')
 
 
 from app.v1.urls.users import user_router
