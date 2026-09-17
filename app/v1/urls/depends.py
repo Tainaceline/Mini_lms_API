@@ -17,9 +17,8 @@ def pegar_sessao():
 
 def verificar_token(token: str = Depends(oauth2_schema), session = Depends(pegar_sessao)):
     try:
-        dic_infor = jwt.decode(token,SECRET_KEY,algorithms=[ALGORITHM])
+        dic_info = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         id_usuario = dic_info.get('sub')
-        tipo_token = dic_info.get("type")
         if not id_usuario:
             raise HTTPException(status_code=401,detail="Token inválido")
 

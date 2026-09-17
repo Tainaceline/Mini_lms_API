@@ -18,3 +18,25 @@ class LoginSchema (BaseModel):
 
     class config:
         from_attributes = True
+class CursosSchema(BaseModel):
+     nome : str
+     descricao : str
+     carga_horaria : int
+     usuario : int
+     class config:
+        from_attributes = True
+
+class AulaSchema(BaseModel):
+    titulo :str
+    conteudo : str
+    ordem : int
+    curso_id : int
+    class config:
+        from_attributes = True
+    
+class MatriculaSchema(BaseModel):
+    
+    aluno_id : int
+    curso_id : int
+    class config:
+        from_attributes = True
