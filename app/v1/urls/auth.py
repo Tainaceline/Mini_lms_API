@@ -36,9 +36,19 @@ async def login(login_schema :LoginSchema, session = Depends(pegar_sessao)):
       if not usuario:
           raise HTTPException(status_code= 401, detail='email ou senha incorretos')
 
-      acess_token = criar_token(usuario.id, "access")
+      access_token = criar_token(usuario.id, "access")
       refresh_token = criar_token(usuario.id, "refresh")
-      return {'acess_token': acess_token, 'token_type': 'Bearer', 'refresh_token': refresh_token}
+      return {
+          "access_token": access_token,
+          "token_type": "bearer",
+          "refresh_token": refresh_token,
+          "usuario": {
+              "id": usuario.id,
+              "nome": usuario.nome,
+              "email": usuario.email,
+              "papel": usuario.papel,
+          },
+      }
         
 @auth_router.get('/refresh')
 async def use_refresh(usuario : Usuario = Depends(verificar_token)):

@@ -12,7 +12,9 @@ oauth2_schema = OAuth2PasswordBearer(tokenUrl='/v1/auth/login_form')
 from app.v1.urls.users import user_router
 from app.v1.urls.auth import auth_router
 from app.v1.urls.curses import curses_router
+from app.v1.urls.aulas import aulas_router
 
 app.include_router(user_router)
 app.include_router(auth_router)
 app.include_router(curses_router)
+app.include_router(aulas_router)
